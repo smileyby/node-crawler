@@ -45,21 +45,23 @@ var c = new Crawler({
             var imgArr = res.body.match(imgReg) || [''];
             var length = imgArr.length;
             var srcArr = [];
+            var name;
             for(var i = 0; i < length; i += 1){
                 var imgUrl = imgArr[i].match(/src=[\'\"]?([^\'\"]*)[\'\"]?/i)[1];
                 srcArr.push(imgUrl);
             };
             var obj = {
-                imgUrlName[count]: srcArr
+                'webName': imgUrlName[count],
+                'imgArr': srcArr
             };
             allData.push(obj);
             count += 1;
-            if(count >= imgUrlName.length){
-                fs.writeFile('data.json', JSON.stringify(allData), function(err) {
+            if(count > 2){
+                fs.writeFile('index.json', JSON.stringify(allData), function(err) {
                     if (err) {
                         console.log('出现错误!');
                     }
-                    console.log('已经存储在data.json');
+                    console.log('已经存储到index.json');
                 })
             }
         }
