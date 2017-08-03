@@ -3,7 +3,7 @@ node-crawler 爬取页面图片素材
 
 先说下思路：
 
-> 1. 使用[node-crawler](http://nodecrawler.org/)先批量怕渠道页面的整个html结构代码的字符串
+> 1. 使用[node-crawler](http://nodecrawler.org/)先批量抓取渠道页面的整个html结构代码的字符串
 > 
 > 2. 使用正则表达式检索出所有的img标签
 > 
